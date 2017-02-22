@@ -1,4 +1,6 @@
-define(['jquery', 'lodash', 'layer'], function() {
+define(['jquery','placeholders', 'lodash', 'layer'], function() {
+
+        $('input, textarea').placeholder();
     var CheckFunc = function() {
         this.$Tel = $("input[type='tel']");
         this.$Email = $("input[type='email']");
