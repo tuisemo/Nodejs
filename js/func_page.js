@@ -1,6 +1,5 @@
 define(['jquery','placeholders', 'lodash', 'layer'], function() {
 
-        $('input, textarea').placeholder();
     var CheckFunc = function() {
         this.$Tel = $("input[type='tel']");
         this.$Email = $("input[type='email']");
@@ -11,6 +10,8 @@ define(['jquery','placeholders', 'lodash', 'layer'], function() {
     CheckFunc.prototype = {
         init: function() { //默认执行的函数功能汇总
             this.listen();
+
+        $("input, textarea").placeholder();
         },
         checkTel: function(text) { //定义功能函数
             var that = this;
