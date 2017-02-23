@@ -8,21 +8,37 @@
     <title>注册指引</title>
     <link rel="stylesheet" type="text/css" href="http://www.ixm.gov.cn/dis/images/normalize.css">
     <link rel="stylesheet" href="css/swiper-3.4.1.min.css">
-    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
     <link rel="stylesheet" href="css/PPTstyle.css">
 </head>
 
 <body>
-    <div class="swiper-container reveal">
+    <div class="swiper-container reveal" style="width: 100%;height: 100%">
         <div class="swiper-wrapper">
-            <div class="swiper-slide slides">
-                <section class="section">
+            <div class="swiper-slide">
+                <div class="section" style="width: 900px;height: 500px;position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+-webkit-transform:translate(-50%,-50%);
+-moz-transform:translate(-50%,-50%);
+-ms-transform:translate(-50%,-50%);">
                     <div class="col-xs-4">文字描述</div>
                     <div class="col-xs-8"><img src="images/reg01.png" alt="注册页面"></div>
-                </section>
+                </div>
             </div>
-            <div class="swiper-slide">slider2</div>
-            <div class="swiper-slide">slider3</div>
+            <div class="swiper-slide">
+                <div class="section" style="width: 900px;height: 500px">
+                    <div class="col-xs-4">发的啥</div>
+                    <div class="col-xs-8"><img src="images/reg01.png" alt="注册页面"></div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="section" style="width: 900px;height: 500px">
+                    <div class="col-xs-4">阿凡达束带结发</div>
+                    <div class="col-xs-8"><img src="images/reg01.png" alt="注册页面"></div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
@@ -30,7 +46,7 @@
 <script type="text/javascript" src="js/swiper-3.4.1.jquery.min.js"></script>
 <script>
 var mySwiper = new Swiper('.swiper-container', {
-    //autoplay: 5000,//可选选项，自动滑动
+    autoplay: 5000, //可选选项，自动滑动
 })
 </script>
 
