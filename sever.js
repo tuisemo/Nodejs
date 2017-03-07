@@ -1,18 +1,17 @@
-var http = require('http');
-var urlapi = require('url');
-var fs = require('fs'); //引入文件读取模块
+const http = require('http');
+const urlapi = require('url');
+const fs = require('fs'); //引入文件读取模块
 
 var documentRoot = 'E:/nodejs';
 //需要访问的文件的存放目录
 
-var server = http.createServer(function(req, res) {
+const server = http.createServer(function(req, res) {
 
     var url = urlapi.parse(req.url);
     //客户端输入的url，例如如果输入localhost:8888/index.html
     //那么这里的url == /index.html 
 
     var file = documentRoot + url.href;
-    //E:/PhpProject/html5/websocket/www/index.html 
 
     var filename = url.pathname.substring(1); // 去掉前导'/'
     var type = getType(filename.substring(filename.lastIndexOf('.') + 1));

@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/paging.css">
+</head>
+
+<body>
+    <div id="myapplylist"></div>
+    <div id="Pagination"></div>
+</body>
+<script data-main="js/main" src="js/lib/require.js"></script>
+<script>
+/*require(["脚本_DataOpenFunc"], function(PersonCenter) {
+    personCenter.applylistdraw(1, 10);
+    personCenter.applyCallbackfunc(10,maxentries);
+})*/
+var name = "The Window";
+　　var object = {
+　　　　name : "My Object",
+　　　　getNameFunc : function(){
+　　　　　　return function(){
+　　　　　　　　return this.name;
+　　　　　　};
+　　　　}
+　　};
+　　alert(object.getNameFunc()());
+</script>
+
+</html>
