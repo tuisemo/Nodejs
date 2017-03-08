@@ -53,7 +53,24 @@
 <script data-main="js/main" src="js/lib/require.js"></script>
 <!-- <script src="js/main.js"></script>-->
 <script>
-require(['func_page']);
+require(['func_page'],function () {
+$.ajax({
+    url: '/sever/data',
+    type: 'GET',
+    dataType: 'text',
+    data: {ccc: '111'},
+})
+.done(function() {
+    console.log("success");
+})
+.fail(function() {
+    console.log("error");
+})
+.always(function() {
+    console.log("complete");
+});
+
+});
 
 </script>
 
