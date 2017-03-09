@@ -16,8 +16,8 @@ function cmd(opt) {
                 {
                     var response = opt.data(pathname, req.url);
                     console.log(response);
-                    res.writeHeader(200, { 'Content-Type': 'text/plain' });
-                    res.write("pass"+response);
+                    res.writeHeader(200, { 'Content-Type': 'application/json; charset=UTF-8' });
+                    res.write(response);
                     res.end();
                 };
                 break;
