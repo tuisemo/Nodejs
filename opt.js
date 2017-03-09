@@ -7,7 +7,7 @@ function data(pathname, opturl) {
     console.log(url.parse(opturl, true).query);
     console.log(querystring.parse(urlquery));*/
     var response = { "result": true, "msg": "", "data": {} };
-    return response;
+    return JSON.stringify(response);
 }
 
 function post(pathname) {
