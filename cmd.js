@@ -16,7 +16,7 @@ function cmd(opt) {
                 {
                     var response = opt.data(pathname, req.url);
                     console.log(response);
-                    res.writeHeader(200, { 'Content-Type': 'text/html; charset=UTF-8' });
+                    res.writeHeader(200, { "Content-Type": 'application/json', 'charset': 'utf-8', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'PUT,POST,GET,DELETE,OPTIONS' });
                     res.write(response);
                     res.end();
                 };
