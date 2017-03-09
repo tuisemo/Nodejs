@@ -1,6 +1,7 @@
 const http = require('http');
 const url = require('url');
 const fs = require('fs'); //引入文件读取模块
+const querystring = require('querystring');
 const hostname = '127.0.0.1';
 const port = 3000;
 var documentRoot = 'E:/nodejs';
@@ -8,13 +9,15 @@ var documentRoot = 'E:/nodejs';
 function cmd(opt) {
     //配置响应
     function Server(req, res) {
-        var pathname = url.parse(req.url).pathname;
+        var pathname = url.parse(req.url, true).pathname;
+        var urlquery = url.parse(req.url, true).query;
         switch (pathname) {
             case '/sever/data':
                 {
-                    opt.data(pathname,req.url);
+                    var response = opt.data(pathname, req.url);
+                    console.log(response);
                     res.writeHeader(200, { 'Content-Type': 'text/plain' });
-                    res.write("success!");
+                    res.write("pass"+response);
                     res.end();
                 };
                 break;
@@ -29,7 +32,6 @@ function cmd(opt) {
             default:
                 {
                     /*=========路由静态资源开始=========*/
-                    console.log(pathname);
                     var file = documentRoot + pathname;
                     var filename = pathname.substring(1); // 去掉前导'/'
                     var type = getType(filename.substring(filename.lastIndexOf('.') + 1));
