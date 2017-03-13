@@ -24,7 +24,24 @@ define(['jquery', 'MSG', 'lodash', 'layer'], function() {
                 that.$Tel.parents('.form-group').addClass('has-error');
                 that.$Tel.next('.help-block').html(MSG["false"] + MSG["202"]);
             } else {
-                TelTrue = true;
+                $.ajax({
+                    url: '/checkTel',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: {
+                        'tel': TelVal
+                    },
+                    success: function(data) {
+                        if (data.result) {
+                            TelTrue = true;
+                            that.$Tel.parents('.form-group').addClass('has-success');
+                            that.$Tel.next('.help-block').html(MSG["true"]);
+                        } else {
+                            that.$Tel.parents('.form-group').addClass('has-error');
+                            that.$Tel.next('.help-block').html(MSG["false"] + data.msg);
+                        }
+                    }
+                })
             }
         },
         checkEmail: function(argument) {

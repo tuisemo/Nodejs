@@ -52,30 +52,6 @@
 <script data-main="js/main" src="js/lib/require.js"></script>
 <script>
 require(['func_page'], function() {
-    $.ajax({
-            url: '/sever/datad',
-            type: 'POST',
-            dataType: 'text',
-            data: {
-                'ccc': '111',
-                'aaa': '222'
-            },
-            success:function (data) {
-                var data= eval('('+data+')');
-                if(data.result){
-                    console.log("pass")
-                }
-            }
-        })
-        .done(function() {
-            console.log("success");
-        })
-        .fail(function() {
-            console.log("error");
-        })
-        .always(function() {
-            console.log("complete");
-        });
 
 });
 </script>

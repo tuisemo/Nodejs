@@ -1,3 +1,6 @@
+const http = require('http');
+const url = require('url');
+const querystring = require('querystring');
 const express = require('express');
 const EXP = express();
 const pathName='E:/nodejs'
@@ -8,16 +11,31 @@ EXP.use(express.static(pathName+'/js'));
 EXP.use(express.static(pathName+'/js/lib'));
 EXP.use(express.static(pathName+'/images'));
 
-//请求路由
+/*============请求路由===========*/
 EXP.get('/', function(req, res) {
     res.send('/nodejs/index.html');
 });
+//手机校验
+EXP.get('/checkTel', function(req, res) {
+	var data=url.parse(req.url, true).query;
+	var resObj={};
+	var tel=data['tel'];
+	if (tel=='18248639098') {
+		resObj['result']=false;
+		resObj['msg']='此账号已被占用';
+		resObj['data']='';
+	}else{
+		resObj['result']=true;
+		resObj['msg']='';
+		resObj['data']='';		
+	};
+    res.json(resObj);
+});
+//
 EXP.post('/sever/data', function(req, res) {
     res.send('this is post request');
 });
-EXP.put('/user', function(req, res) {
-    res.send('this is put request from /user');
-});
+
 //预置404
 EXP.use(function(req, res, next) {
   res.status(404).sendFile('/nodejs/404.html');
