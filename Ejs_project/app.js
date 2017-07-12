@@ -11,8 +11,9 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+//原表达式：app.set(name,value)
+app.set('views', path.join(__dirname, 'views'));//设置了模版文件夹的路径
+app.set('view engine', 'ejs');//设置使用的模板引擎，此处设置为ejs
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
