@@ -11,9 +11,10 @@ var users = require('./routes/users');
 var app = express();
 
 // view engine setup
-//原表达式：app.set(name,value)
 app.set('views', path.join(__dirname, 'views'));//设置了模版文件夹的路径
-app.set('view engine', 'ejs');//设置使用的模板引擎，此处设置为ejs
+//app.set('view engine', 'ejs');//设置使用的模板引擎，此处设置为ejs
+app.engine('.html', require('ejs').__express); 
+app.set('view engine', 'html');//设置使用的模板引擎，此处设置为html
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/HACK', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
