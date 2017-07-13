@@ -11,5 +11,14 @@ router.get('/', function(req, res, next) {
         ]
     });
 });
+router.get('/HACK', function(req, res, next) {
+
+    var ejsresult = {
+        haslogin: false,
+        userName: ''
+    };
+
+    res.render('HACK', ejsresult);
+});
 
 module.exports = router;
