@@ -18,10 +18,12 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
+    "gulp-cache": "^0.4.6",
     "gulp-clean-css": "^3.6.0",
     "gulp-concat": "^2.6.1",
     "gulp-file-include": "^1.1.0",
     "gulp-generator": "^1.0.0",
+    "gulp-header": "^1.8.8",
     "gulp-htmlhint": "^0.3.1",
     "gulp-inject": "^4.2.0",
     "gulp-jshint": "^2.0.4",
