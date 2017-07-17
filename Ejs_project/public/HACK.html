@@ -42,7 +42,11 @@
         </div>
     </div>
     <div class="container wrap">
-
+    <%= title %>
+        <%- title %>
+            <% users.forEach(function(user){ %>
+                <h3><%= user.username %></h3>
+                <% }) %>
     </div>
     <div id="footer" class="footer">
         <div class="container">
