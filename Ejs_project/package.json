@@ -21,6 +21,7 @@
     "gulp-cache": "^0.4.6",
     "gulp-clean-css": "^3.6.0",
     "gulp-concat": "^2.6.1",
+    "gulp-ext-replace": "^0.3.0",
     "gulp-file-include": "^1.1.0",
     "gulp-generator": "^1.0.0",
     "gulp-header": "^1.8.8",
