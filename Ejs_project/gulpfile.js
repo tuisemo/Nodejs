@@ -75,6 +75,7 @@ gulp.task('fileinclude', ['concat'], function() {
             indent: true
         }))
         .pipe(gulp.dest('public'))
+        //.pipe(ext_replace('.ejs'))
         .pipe(gulp.dest('views'));
 });
 

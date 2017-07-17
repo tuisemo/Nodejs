@@ -1,17 +1,15 @@
 var express = require('express');
-var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
+var route = express.Router();
 
-    var ejsresult = {
+route.get('/', function(req, res) {
+    var msg = {
         title: '<h1>Express</h1>',
         users: [{username: 'alone'},
             {username: 'king' },
             {username: 'superme'}
         ]
-    };
-    
-    res.render('index', ejsresult);
+    };    res.render('index', msg);
 });
-module.exports = router;
+
+module.exports = route;
