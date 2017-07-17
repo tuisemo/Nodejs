@@ -7,22 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HOME</title>
     <!-- inject:base:css -->
-    <link rel="stylesheet" href="css/normalize.css">
     <!-- endinject -->
-    <!--[if lt IE 9]>
-        <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>  
-        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
+    <!--IEhack@include('./include/IEhack.html')-->
 </head>
 
 <body>
     <%= title %>
-    <%- title %>
-    <% users.forEach(function(user){ %>
-      <h3><%= user.username %></h3>
-    <% }) %>
+        <%- title %>
+            <% users.forEach(function(user){ %>
+                <h3><%= user.username %></h3>
+                <% }) %>
 </body>
 
-
 </html>
-

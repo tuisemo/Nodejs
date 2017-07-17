@@ -37,7 +37,7 @@ gulp.task('htmlhint', function() {
 });
 // 编译Less
 gulp.task('less', function() {
-    var lessbulid = gulp.src('./bulid/css/less/*.less')
+    var lessbulid = gulp.src(['./bulid/css/less/*.less','!./bulid/css/less/variables.less'])
         .pipe(cache(less()))
         .pipe(gulp.dest('./bulid/css/stylesheets'));
     return lessbulid;
@@ -91,6 +91,7 @@ gulp.task('copy', ['concat'], function() {
         .pipe(gulp.dest('./public/js/lib'));
 
     gulp.src(['./bulid/css/*.css'])
+        .pipe(cache(cssmin()))
         .pipe(gulp.dest('./public/css'));
 });
 

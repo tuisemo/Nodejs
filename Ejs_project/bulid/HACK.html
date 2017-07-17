@@ -14,7 +14,11 @@
 <body>
     <!--IEhack@include('./include/header.html')-->
     <div class="container wrap">
-
+    <%= title %>
+        <%- title %>
+            <% users.forEach(function(user){ %>
+                <h3><%= user.username %></h3>
+                <% }) %>
     </div>
     <!--IEhack@include('./include/footer.html')-->
     <!-- inject:CommonJS:js -->
