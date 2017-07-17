@@ -87,6 +87,7 @@ gulp.task('scripts', function() {
 gulp.task('copy', function() {
     gulp.src(['./bulid/js/lib/*.js'])
         .pipe(gulp.dest('./public/js/lib'));
+
     gulp.src(['./bulid/css/*.css'])
         .pipe(gulp.dest('./public/css'));
 });
@@ -97,7 +98,7 @@ gulp.task('default', ['jshint','less', 'cssmin','scripts', 'concat','fileinclude
     gulp.watch('./bulid/js/*.js', ['jshint', 'scripts']);
     gulp.watch('./bulid/js/lib/*.js', ['jshint','copy']);
     gulp.watch('./bulid/css/less/*.less', ['less']);
-    gulp.watch('./bulid/css/*.css', ['cssmin']);
+    gulp.watch('./bulid/css/**/*.css', ['cssmin','copy']);
     gulp.watch(['./bulid/*.html'], ['fileinclude','htmlhint']);
     //gulp.watch(['./public/*.html'], ['']);
 });
