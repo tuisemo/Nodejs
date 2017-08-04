@@ -37,7 +37,7 @@ gulp.task('htmlhint', function() {
 });
 // 编译Less
 gulp.task('less', function() {
-    var lessbulid = gulp.src(['./bulid/css/less/*.less','!./bulid/css/less/variables.less'])
+    var lessbulid = gulp.src(['./bulid/css/less/*.less', '!./bulid/css/less/variables.less'])
         .pipe(cache(less()))
         .pipe(gulp.dest('./bulid/css/stylesheets'));
     return lessbulid;
