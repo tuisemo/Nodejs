@@ -1,9 +1,23 @@
-var express = require('express');
-var router = express.Router();
+module.exports = function(app) {
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+	app.use('/', require('./home'));
+	app.use('/hack', require('./hack'));
+	app.use('/users', require('./users'));
+    // catch 404 and forward to error handler
+    app.use(function(req, res, next) {
+        var err = new Error('Not Found');
+        err.status = 404;
+        next(err);
+    });
 
-module.exports = router;
+    // error handler
+    app.use(function(err, req, res, next) {
+        // set locals, only providing error in development
+        res.locals.message = err.message;
+        res.locals.error = req.app.get('env') === 'development' ? err : {};
+
+        // render the error page
+        res.status(err.status || 500);
+        res.render('error');
+    });
+}
