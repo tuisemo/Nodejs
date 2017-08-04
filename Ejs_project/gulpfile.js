@@ -20,7 +20,6 @@ const ext_replace = require('gulp-ext-replace');
 var banner =
     "/** \n\
 * By 慎独\n\
-*项目练习\n \
 */\n";
 
 // 检查脚本
