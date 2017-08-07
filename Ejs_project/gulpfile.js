@@ -36,8 +36,9 @@ gulp.task('htmlhint', function() {
 });
 // 编译Less
 gulp.task('less', function() {
-    var lessbulid = gulp.src(['./bulid/css/less/*.less', '!./bulid/css/less/variables.less'])
-        .pipe(cache(less()))
+    var lessbulid = gulp.src(['./bulid/css/less/*.less'])
+        //.pipe(cache(less()))
+        .pipe(less())
         .pipe(gulp.dest('./bulid/css/stylesheets'));
     return lessbulid;
 });
@@ -100,7 +101,7 @@ gulp.task('default', ['jshint', 'concat', 'scripts', 'fileinclude', 'copy'], fun
     // 监听文件变化
     gulp.watch('./bulid/js/*.js', ['jshint', 'scripts']);
     gulp.watch('./bulid/js/lib/*.js', ['jshint', 'copy']);
-    gulp.watch('./bulid/css/less/*.less', ['less']);
+    gulp.watch('./bulid/css/less/**/*.less', ['copy']);
     gulp.watch('./bulid/css/*/*.css', ['cssmin', 'concat', 'copy']);
     gulp.watch('./bulid/css/*.css', ['cssmin', 'concat', 'copy']);
     gulp.watch(['./bulid/**/*.html'], ['htmlhint', 'fileinclude']);

@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
         })
 })
 
-router.get('/add', (req, res) => {
-    res.render('add')
+router.get('/addBook', (req, res) => {
+    res.render('addBook')
 })
 
 router.post('/add', (req, res) => {
