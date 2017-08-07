@@ -18,7 +18,22 @@
 </head>
 
 <body>
-
+    <div id="header">
+        <div class="container">
+            <a href="/">
+                <div class="logo"></div>
+            </a>
+            <nav class="header-nav col-sm-8 hidden-xs" v-html="loginDrawHTML">
+                <ul class="nav-menu fr">
+                    <li class="nav-li"><a href="http://www.ixm.gov.cn/sy/zczy/" target=_blank>注册指引</a></li>
+                    <li id="loginbox" class="nav-li">
+                        <span><a href="/">登录</a></span>&nbsp;|
+                        <span><a href="/vue.html">注册</a></span>
+                    </li>
+                    </ul>
+            </nav>
+        </div>
+    </div>
     <div class="container wrap">
     <% books.forEach(function(book){ %>
         <h3><%=  book.title %></h3>

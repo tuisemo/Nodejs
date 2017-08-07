@@ -103,5 +103,5 @@ gulp.task('default', ['jshint', 'concat', 'scripts', 'fileinclude', 'copy'], fun
     gulp.watch('./bulid/css/less/*.less', ['less']);
     gulp.watch('./bulid/css/*/*.css', ['cssmin', 'concat', 'copy']);
     gulp.watch('./bulid/css/*.css', ['cssmin', 'concat', 'copy']);
-    gulp.watch(['./bulid/*.html'], ['fileinclude', 'htmlhint']);
+    gulp.watch(['./bulid/**/*.html'], ['htmlhint', 'fileinclude']);
 });

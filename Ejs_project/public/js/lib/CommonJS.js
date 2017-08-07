@@ -118,17 +118,7 @@ require.config({
         //jquery: "./lib/jquery",
         vue: "./lib/vue",
         脚本lazyload: "./lib/jquery.lazyload.min",
-        //脚本lodash: "./lib/lodash",
-        脚本layer: "./lib/layer",
-        脚本unslider: "./lib/unslider.min",
-        脚本MSG: "./MSG",
-        脚本handlejs: "./handlejs",
-        脚本WebUploader: "./lib/WebUploader",
-        脚本upload: "./upload",
-        脚本tool: "./tool",
-        脚本vueController: "./vueController",
-        脚本commonJS: "./commonJS",
-        脚本vuetools: "./vuetools",
-        脚本vuedouban: "./vuedouban"
+        脚本lodash: "./lib/lodash",
+        脚本layer: "./lib/layer"
     }
 });

@@ -1,6 +1,9 @@
 @import 'variables.less';
 /* 自定义样式 */
-
+html,
+body {
+    height: 100%;
+}
 #header {
     position: relative;
     display: block;
@@ -62,5 +65,21 @@
     min-height: 100%;
     &:after {
         .clearfix
+    }
+}
+
+/* 底部自定义样式 */
+
+#footer {
+    position: relative;
+    display: block;
+    margin-top: 30px;
+    padding: 10px 0px;
+    margin-bottom: 0;
+    color: @text-dark+11;
+    background-color: @footer-bg;
+    border-top: 1px solid @footer-bg - 22;
+    #imgConac {
+        width: 50px;
     }
 }
