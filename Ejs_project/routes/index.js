@@ -1,6 +1,6 @@
 module.exports = function(app) {
 
-	app.use('/', require('./home'));
+	app.use('/', require('./mongodbBook'));
 	app.use('/hack', require('./hack'));
 	app.use('/users', require('./users'));
     // catch 404 and forward to error handler
