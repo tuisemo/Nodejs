@@ -119,6 +119,7 @@ require.config({
         vue: "./lib/vue",
         脚本lazyload: "./lib/jquery.lazyload.min",
         脚本lodash: "./lib/lodash",
-        脚本layer: "./lib/layer"
+        脚本layer: "./lib/layer",
+        脚本mongodbFun: "./mongodbFun"
     }
 });

@@ -17,7 +17,12 @@ router.post('/add', (req, res) => {
     let book = req.body
     BookModel.addBook(book)
         .then((result) => {
-            res.redirect('/')
+            res.redirect('../')
+        }).catch((err) => {
+            res.locals.message = err.message;
+            res.locals.error = req.app.get('env') === 'development' ? err : {};
+            res.status(err.status || 500);
+            res.render('error');
         })
 })
 
@@ -25,6 +30,11 @@ router.get('/:bookId/remove', (req, res) => {
     BookModel.delBook(req.params.bookId)
         .then((book) => {
             res.redirect('/')
+        }).catch((err) => {
+            res.locals.message = err.message;
+            res.locals.error = req.app.get('env') === 'development' ? err : {};
+            res.status(err.status || 500);
+            res.render('error');
         })
 })
 
@@ -37,6 +47,11 @@ router.get('/:bookId/edit', (req, res) => {
                 book,
                 bookid: req.params.bookId
             })
+        }).catch((err) => {
+            res.locals.message = err.message;
+            res.locals.error = req.app.get('env') === 'development' ? err : {};
+            res.status(err.status || 500);
+            res.render('error');
         })
 })
 
@@ -45,6 +60,11 @@ router.post('/:bookId/edit', (req, res) => {
     BookModel.editBook(req.params.bookId, book)
         .then((result) => {
             res.redirect('/')
+        }).catch((err) => {
+            res.locals.message = err.message;
+            res.locals.error = req.app.get('env') === 'development' ? err : {};
+            res.status(err.status || 500);
+            res.render('error');
         })
 })
 
