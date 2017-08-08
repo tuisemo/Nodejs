@@ -20,11 +20,7 @@ define(['vue'], function(Vue) {
                     url: '/add',
                     type: 'POST',
                     dataType: 'json',
-                    data: {
-                        title: that.addBooks.title,
-                        summary: that.addBooks.summary,
-                        price: that.addBooks.price
-                    },
+                    data: addBooks,
                     success: function(data) {
 
                     },
