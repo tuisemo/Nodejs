@@ -18,7 +18,36 @@ module.exports = {
             .exec()
     },
     addBook(book) {
-        return Book.create(book)
+        return Book.create(book);
+        /*=======Promise写法=====*/
+        /*Book.findOne({ "title": book.title }).then((data)=>{
+            if (data) {
+                console.log('该数据已存在！');
+                return {
+                    result: false,
+                    msg: '该数据已存在'
+                };
+            } else {
+                return Book.create(book);
+            }
+        }).catch((error)=>{
+            console.log(error);
+        })*/
+        /*=======Promise写法=====*/
+        /*return Book.findOne({ "title": book.title }, function(error, data) {
+            if (error) {
+                console.log(error);
+            }
+            if (data) {
+                console.log('该数据已存在！');
+                return {
+                    result: false,
+                    msg: '该数据已存在'
+                };
+            } else {
+                return Book.create(book);
+            }
+        })*/
     },
     delBook(id) {
         return Book

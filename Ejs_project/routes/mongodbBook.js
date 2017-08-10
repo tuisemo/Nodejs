@@ -16,8 +16,9 @@ router.get('/addBook', (req, res) => {
 router.post('/add', (req, res) => {
     let book = req.body
     BookModel.addBook(book)
-        .then((result) => {
-            res.redirect('../')
+        .then((data) => {
+            //res.redirect('../')
+            res.json(data)
         }).catch((err) => {
             res.locals.message = err.message;
             res.locals.error = req.app.get('env') === 'development' ? err : {};
