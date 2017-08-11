@@ -1,30 +1,59 @@
 const express = require('express')
 const router = express.Router()
-const BookModel = require('../models/books')
-
-router.get('/', (req, res) => {
-    BookModel.getBooks()
-        .then((books) => {
-            res.render('index', { books })
-        })
-})
+const BookModel = require('../models/lib/mongo').BookModel
+/*
+*页面路由
+*/
 
 router.get('/addBook', (req, res) => {
     res.render('addBook')
 })
+router.get('/signup', (req, res) => {
+    res.render('signup')
+})
+router.get('/signin', (req, res) => {
+    res.render('signin')
+})
 
-router.post('/add', (req, res) => {
-    let book = req.body
-    BookModel.addBook(book)
-        .then((data) => {
-            //res.redirect('../')
-            res.json(data)
+/*
+*请求处理
+*/
+
+router.get('/', (req, res) => {
+    BookModel.find({})
+        .sort({ _id: -1 })
+        .exec()
+        .then((books) => {
+            res.render('index', { books })
         }).catch((err) => {
             res.locals.message = err.message;
             res.locals.error = req.app.get('env') === 'development' ? err : {};
             res.status(err.status || 500);
             res.render('error');
         })
+})
+
+router.post('/add', (req, res) => {
+    let book = req.body;
+    BookModel.findOne({ "title": book.title }).then((data) => {
+        if (data) {
+            res.json({
+                "result": false,
+                "msg": "该数据已存在"
+            });
+        } else {
+            BookModel.create(book);
+            res.json({
+                "result": true,
+                "msg": ""
+            });
+        }
+    }).catch((err) => {
+        res.locals.message = err.message;
+        res.locals.error = req.app.get('env') === 'development' ? err : {};
+        res.status(err.status || 500);
+        res.render('error');
+    })
 })
 
 router.get('/:bookId/remove', (req, res) => {
