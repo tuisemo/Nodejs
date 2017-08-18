@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>avalon</title>
+    <!-- inject:base:css -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/pure.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- endinject -->
+    	<!--[if lt IE 9]>
+        <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>  
+        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body ms-controller="body" class="ms-controller">
+    <div class="pure-g">
+        <div class="pure-u-1-2 text-c">
+            <p>{{@textmsg}}</p>
+        </div>
+        <div class="pure-u-1-2 text-c">
+            <p>{{@textmsg+@textmsg2}}</p>
+        </div>
+        <div class="pure-u-1-2 text-c">
+            <p ms-skip='true'>{{@textmsg2|uppercase}}</p>
+        </div>
+        <div class="pure-u-1-2 text-c">
+            <p>{{@textmsg2|uppercase}}</p>
+        </div>
+        <div class="pure-u-1-6 text-c" ms-for="el in @for_obj">
+            <p>{{el.aa}}</p>
+        </div>
+        <div class="pure-u-1-6 text-c" ms-for="el in @img_obj">
+            <img ms-attr="{src: @el.src}">
+        </div>
+    </div>
+    <script src="js/lib/CommonJS.js"></script>
+    <script>
+    require(['controller'], function() {
+        // body...
+    })
+    </script>
+</body>
+
+</html>
