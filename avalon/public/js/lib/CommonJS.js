@@ -9,8 +9,9 @@ var requirejs,require,define;!function(global,setTimeout){function commentReplac
 require.config({
     baseUrl: "../js",
     paths: {
-        //jquery: "./lib/jquery",
+        jquery: "./lib/jquery",
         avalon: "./lib/avalon",
+        layer: "./lib/layer",
         controller: "./controller"
     }
 });

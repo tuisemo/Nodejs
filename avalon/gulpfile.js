@@ -46,7 +46,7 @@ gulp.task('cssmin', ['less'], function() {
 //include公共文件
 gulp.task('fileinclude', ['cssmin'], function() {
     gulp.src('./bulid/*.html')
-        .pipe(inject(gulp.src(['./bulid/css/normalize.css', './bulid/css/pure.css', './bulid/css/style.css'], { reda: false }), { starttag: '<!-- inject:base:{{ext}} -->', relative: true }))
+        .pipe(inject(gulp.src(['./bulid/css/normalize.css', './bulid/css/pure.css', './bulid/css/layer.css', './bulid/css/style.css'], { reda: false }), { starttag: '<!-- inject:base:{{ext}} -->', relative: true }))
         //.pipe(inject(gulp.src(['./bulid/js/lib/require.js'], { reda: false }), { starttag: '<!-- inject:require:{{ext}} -->', relative: true }))
         .pipe(fileinclude({
             prefix: '<!--IEhack@',
@@ -73,7 +73,7 @@ gulp.task('imagemin', function() {
 // 合并，压缩文件
 gulp.task('scripts', function() {
     gulp.src(['./bulid/js/*.js'])
-        .pipe(jsmin())
+        //.pipe(jsmin())
         .pipe(gulp.dest('./public/js'));
     gulp.src(['./bulid/js/lib/*.js'])
         .pipe(gulp.dest('./public/js/lib'));
