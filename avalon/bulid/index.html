@@ -36,7 +36,7 @@
         <fieldset>
             <div class="pure-control-group">
                 <label for="name">用户名</label>
-                <input id="name" type="text" placeholder="userName" ms-duplex="@userName" ms-rules="{userName:true,required:true}">
+                <input id="name" type="text" placeholder="userName" ms-duplex="@userName | change" ms-rules="{userName:true,required:true}">
             </div>
             <div class="pure-control-group">
                 <label for="mobile">手机</label>
@@ -48,7 +48,7 @@
             </div>
             <div class="pure-control-group">
                 <label for="password">密码</label>
-                <input id="password" type="password" placeholder="Password"  ms-duplex="@password | change" ms-rules="{password:true,required:true}">
+                <input id="password" type="password" placeholder="Password"  ms-duplex="@password" ms-rules="{password:true,required:true}">
             </div>
             <div class="pure-control-group">
                 <label for="password">确认密码</label>

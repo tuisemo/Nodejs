@@ -61,7 +61,7 @@ define(['jquery', 'avalon', 'layer'], function() {
             return value;
         }
     };
-    avalon.validators.password = {
+    /*avalon.validators.password = {
         message: '用户名格式不符合',
         get: function(value, field, next) {
             var REGEX1 = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
@@ -77,5 +77,5 @@ define(['jquery', 'avalon', 'layer'], function() {
             return value;
         }
     };
-
+*/
 });
