@@ -1,20 +1,9 @@
-define(['jquery', 'avalon', 'layer'], function() {
-
+define(['avalon'], function() {
+    avalon.config({
+        loader: false
+    });
     var vm = avalon.define({
-        $id: 'body',
-        textmsg: '这是一个text内容',
-        textmsg2: 'aaaaaaaaa',
-        htmlmsg: '<p>这是一个带样式的的内容</p>',
-        attr_title: '标题',
-        attr_obj: { title: '普通 ', algin: 'left' },
-        for_obj: [{ aa: 1 }, { aa: 2 }, { aa: 3 }, { aa: 4 }, { aa: 5 }, { aa: 6 }],
-        img_obj: [
-            { src: 'http://www.ixm.gov.cn/dis/passport/authCode/show?random' + Math.random() },
-            { src: 'http://www.ixm.gov.cn/dis/passport/authCode/show?random' + Math.random() },
-            { src: 'http://www.ixm.gov.cn/dis/passport/authCode/show?random' + Math.random() }
-        ],
-        cssmsg: '',
-        attrmsg: '',
+        $id: 'body',        
         userName: '',
         mobile: '',
         password: '',
@@ -28,11 +17,24 @@ define(['jquery', 'avalon', 'layer'], function() {
             },
             onValidateAll: function(reasons) {
                 if (reasons.length) {
-                    layer.msg(reasons[0].message);
+                    //layer.msg(reasons[0].message);
+                        reasons.forEach(function(reason) {
+                            console.log(reason.getMessage());
+                        });
                 } else {
                     layer.msg('全部通过');
                 }
-            }
+            },
+            validateInBlur: true,
+            validateInKeyup: false
+        },
+        validateCode:{
+        	value:'',
+        	img:'http://www.ixm.gov.cn/dis/passport/authCode/show',
+        },
+        reloadvalidate: function() {
+            this.validateCode.value='';
+            this.validateCode.img='http://www.ixm.gov.cn/dis/passport/authCode/show?' + Math.random();
         }
     });
 
@@ -54,15 +56,17 @@ define(['jquery', 'avalon', 'layer'], function() {
             var REGEX = /^((13[0-9])|(14[0-9])|(15[0-9])|(17[2-9])|(18[0-9]))\d{8}$/;
             if (value.length != 11) {
                 this.message = '手机号码长度必须为11位';
+                next(false);
             } else if (!REGEX.test(value)) {
                 this.message = '手机号码格式不正确';
-            }
-            next(REGEX.test(value) && value.length == 11);
+                next(false);
+            } else
+                next(true);
             return value;
         }
     };
-    /*avalon.validators.password = {
-        message: '用户名格式不符合',
+    avalon.validators.password = {
+        message: '密码格式不正确',
         get: function(value, field, next) {
             var REGEX1 = /[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/;
             var REGEX2 = /^[A-Za-z0-9`~!@#\$%\^&\*\(\)_\+-=\[\]\{\}\\\|;:'"<,>\.\?\/]{8,30}$/;
@@ -77,5 +81,4 @@ define(['jquery', 'avalon', 'layer'], function() {
             return value;
         }
     };
-*/
 });

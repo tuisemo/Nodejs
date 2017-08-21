@@ -12,56 +12,42 @@
 </head>
 
 <body ms-controller="body" class="ms-controller">
-    <div class="pure-g">
-        <div class="pure-u-1-2 text-c">
-            <p>{{@textmsg}}</p>
-        </div>
-        <div class="pure-u-1-2 text-c">
-            <p>{{@textmsg+@textmsg2}}</p>
-        </div>
-        <div class="pure-u-1-2 text-c">
-            <p ms-skip="true">{{@textmsg2|uppercase}}</p>
-        </div>
-        <div class="pure-u-1-2 text-c">
-            <p>{{@textmsg2|uppercase}}</p>
-        </div>
-        <div class="pure-u-1-6 text-c" ms-for="el in @for_obj">
-            <p>{{el.aa}}</p>
-        </div>
-        <div class="pure-u-1-6 text-c" ms-for="el in @img_obj">
-            <img ms-attr="{src: @el.src}">
-        </div>
+    <div class="uk-container uk-container-center">
+        <form class="uk-form uk-form-horizontal" ms-validate="@validate">
+            <fieldset class="uk-grid">
+                <div class="uk-form-row uk-width-1-2">
+                    <label class="uk-form-label" for="name">用户名</label>
+                    <input class="uk-form-large" id="name" type="text" placeholder="userName" ms-duplex="@userName" ms-rules="{userName:true,required:true}">{{@userName}}
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="mobile">手机</label>
+                    <input class="uk-form-large" id="mobile" type="tel" placeholder="mobile" ms-duplex="@mobile" ms-rules="{mobile:true,required:true}">{{@mobile}}
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="mobile">验证码</label>
+                    <img ms-attr="{src: @validateCode.img}" ms-on-click="@reloadvalidate">
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="email">邮箱</label>
+                    <input class="uk-form-large" id="email" type="email" placeholder="Email Address">
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="password">密码</label>
+                    <input class="uk-form-large" id="password" type="password" placeholder="Password" ms-duplex="@password" ms-rules="{password:true,required:true}">
+                </div>
+                <div class="uk-form-row">
+                    <label class="uk-form-label" for="password">确认密码</label>
+                    <input class="uk-form-large" type="password" placeholder="Password" ms-duplex="@confirm_password | change" ms-rules="{equalto:'password',required:true}">
+                </div>
+                <div class="pure-controls">
+                    <label class="uk-form-label" for="cb" class="pure-checkbox">
+                        <input id="cb" type="checkbox">已阅读协议
+                    </label>
+                    <button type="submit" class="pure-button pure-button-primary">提交</button>
+                </div>
+            </fieldset>
+        </form>
     </div>
-    <form class="pure-form pure-form-aligned" ms-validate="@validate">
-        <fieldset>
-            <div class="pure-control-group">
-                <label for="name">用户名</label>
-                <input id="name" type="text" placeholder="userName" ms-duplex="@userName | change" ms-rules="{userName:true,required:true}">
-            </div>
-            <div class="pure-control-group">
-                <label for="mobile">手机</label>
-                <input id="mobile" type="tel" placeholder="mobile" ms-duplex="@mobile | change" ms-rules="{mobile:true,required:true}">
-            </div>
-            <div class="pure-control-group">
-                <label for="email">邮箱</label>
-                <input id="email" type="email" placeholder="Email Address">
-            </div>
-            <div class="pure-control-group">
-                <label for="password">密码</label>
-                <input id="password" type="password" placeholder="Password"  ms-duplex="@password" ms-rules="{password:true,required:true}">
-            </div>
-            <div class="pure-control-group">
-                <label for="password">确认密码</label>
-                <input type="password" placeholder="Password"  ms-duplex="@confirm_password | change" ms-rules="{equalto:'password',required:true}">
-            </div>
-            <div class="pure-controls">
-                <label for="cb" class="pure-checkbox">
-                    <input id="cb" type="checkbox">已阅读协议
-                </label>
-                <button type="submit" class="pure-button pure-button-primary">提交</button>
-            </div>
-        </fieldset>
-    </form>
     <script src="js/lib/CommonJS.js"></script>
     <script>
     require(['controller'], function() {
