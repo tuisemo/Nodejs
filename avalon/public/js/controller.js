@@ -31,6 +31,7 @@ define(['avalon'], function() {
         validateCode:{
         	value:'',
         	img:'http://www.ixm.gov.cn/dis/passport/authCode/show',
+            style:{border:'1px solid rgba(34,36,38,.15)'}
         },
         reloadvalidate: function() {
             this.validateCode.value='';

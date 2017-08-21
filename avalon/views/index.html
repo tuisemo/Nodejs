@@ -8,7 +8,7 @@
     <title>avalon</title>
     <!-- inject:base:css -->
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/uikit.css">
+    <link rel="stylesheet" href="css/semantic.min.css">
     <link rel="stylesheet" href="css/layer.css">
     <link rel="stylesheet" href="css/style.css">
     <!-- endinject -->
@@ -21,41 +21,48 @@
 </head>
 
 <body ms-controller="body" class="ms-controller">
-    <div class="uk-container uk-container-center">
-        <form class="uk-form uk-form-horizontal" ms-validate="@validate">
-            <fieldset class="uk-grid">
-                <div class="uk-form-row uk-width-1-2">
-                    <label class="uk-form-label" for="name">用户名</label>
-                    <input class="uk-form-large" id="name" type="text" placeholder="userName" ms-duplex="@userName" ms-rules="{userName:true,required:true}">{{@userName}}
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="mobile">手机</label>
-                    <input class="uk-form-large" id="mobile" type="tel" placeholder="mobile" ms-duplex="@mobile" ms-rules="{mobile:true,required:true}">{{@mobile}}
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="mobile">验证码</label>
-                    <img ms-attr="{src: @validateCode.img}" ms-on-click="@reloadvalidate">
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="email">邮箱</label>
-                    <input class="uk-form-large" id="email" type="email" placeholder="Email Address">
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="password">密码</label>
-                    <input class="uk-form-large" id="password" type="password" placeholder="Password" ms-duplex="@password" ms-rules="{password:true,required:true}">
-                </div>
-                <div class="uk-form-row">
-                    <label class="uk-form-label" for="password">确认密码</label>
-                    <input class="uk-form-large" type="password" placeholder="Password" ms-duplex="@confirm_password | change" ms-rules="{equalto:'password',required:true}">
-                </div>
-                <div class="pure-controls">
-                    <label class="uk-form-label" for="cb" class="pure-checkbox">
-                        <input id="cb" type="checkbox">已阅读协议
-                    </label>
-                    <button type="submit" class="pure-button pure-button-primary">提交</button>
-                </div>
-            </fieldset>
-        </form>
+    <div class="ui container">
+        <div class="ui grid">
+            <form class="ui form six wide column" ms-validate="@validate">
+                <fieldset class="">
+                    <div class="field">
+                        <label class="" for="name">用户名</label><span>yonghfasdjf</span>
+                        <input class="" id="name" type="text" placeholder="userName" ms-duplex="@userName" ms-rules="{userName:true,required:true}">{{@userName}}
+                    </div>
+                    <div class="field error">
+                        <label class="" for="mobile">手机</label>
+                        <input class="" id="mobile" type="tel" placeholder="mobile" ms-duplex="@mobile" ms-rules="{mobile:true,required:true}">{{@mobile}}
+                    </div>
+                    <div class="field">
+                        <label class="" for="mobile">验证码</label>
+                        <div class="ui action input">
+                            <input class="" id="password" type="password" placeholder="Password" ms-duplex="@password" ms-rules="{password:true,required:true}">
+                            <img ms-attr="{src: @validateCode.img}" ms-on-click="@reloadvalidate" :css="@validateCode.style">
+                            <button class="ui button" ms-on-click="@reloadvalidate">刷新</button>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="" for="email">邮箱</label>
+                        <input class="" id="email" type="email" placeholder="Email Address">
+                    </div>
+                    <div class="field">
+                        <label class="" for="password">密码</label>
+                        <input class="" id="password" type="password" placeholder="Password" ms-duplex="@password" ms-rules="{password:true,required:true}">
+                    </div>
+                    <div class="field">
+                        <label class="" for="password">确认密码</label>
+                        <input class="" type="password" placeholder="Password" ms-duplex="@confirm_password | change" ms-rules="{equalto:'password',required:true}">
+                    </div>
+                    <div class="field">
+                        <div class="ui checkbox">
+                            <input id="cb" type="checkbox" checked="checked">
+                            <label for="cb">已阅读协议</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="ui button primary">提交</button>
+                </fieldset>
+            </form>
+        </div>
     </div>
     <script src="js/lib/CommonJS.js"></script>
     <script>
