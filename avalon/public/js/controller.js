@@ -3,7 +3,7 @@ define(['avalon'], function() {
         loader: false
     });
     var vm = avalon.define({
-        $id: 'body',        
+        $id: 'body',
         userName: '',
         mobile: '',
         password: '',
@@ -18,9 +18,9 @@ define(['avalon'], function() {
             onValidateAll: function(reasons) {
                 if (reasons.length) {
                     //layer.msg(reasons[0].message);
-                        reasons.forEach(function(reason) {
-                            console.log(reason.getMessage());
-                        });
+                    reasons.forEach(function(reason) {
+                        console.log(reason.getMessage());
+                    });
                 } else {
                     layer.msg('全部通过');
                 }
@@ -28,14 +28,14 @@ define(['avalon'], function() {
             validateInBlur: true,
             validateInKeyup: false
         },
-        validateCode:{
-        	value:'',
-        	img:'http://www.ixm.gov.cn/dis/passport/authCode/show',
-            style:{border:'1px solid rgba(34,36,38,.15)'}
+        validateCode: {
+            value: '',
+            img: 'http://www.ixm.gov.cn/dis/passport/authCode/show',
+            style: [{ padding: 0 }, { height: 34 }]
         },
         reloadvalidate: function() {
-            this.validateCode.value='';
-            this.validateCode.img='http://www.ixm.gov.cn/dis/passport/authCode/show?' + Math.random();
+            this.validateCode.value = '';
+            this.validateCode.img = 'http://www.ixm.gov.cn/dis/passport/authCode/show?' + Math.random();
         }
     });
 

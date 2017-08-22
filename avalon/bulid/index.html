@@ -12,45 +12,47 @@
 </head>
 
 <body ms-controller="body" class="ms-controller">
-    <div class="ui container">
-        <div class="ui grid">
-            <form class="ui form six wide column" ms-validate="@validate">
+    <div class="container">
+        <div class="col-sm-6">
+            <form class="form-horizontal" ms-validate="@validate">
                 <fieldset class="">
-                    <div class="field">
-                        <label class="" for="name">用户名</label><span>yonghfasdjf</span>
-                        <input class="" id="name" type="text" placeholder="userName" ms-duplex="@userName" ms-rules="{userName:true,required:true}">{{@userName}}
+                    <div class="form-group">
+                        <label class="" for="name">用户名</label>
+                        <input class="form-control" id="name" type="text" placeholder="userName" ms-duplex="@userName" ms-rules="{userName:true,required:true}">{{@userName}}
                     </div>
-                    <div class="field error">
+                    <div class="form-group">
                         <label class="" for="mobile">手机</label>
-                        <input class="" id="mobile" type="tel" placeholder="mobile" ms-duplex="@mobile" ms-rules="{mobile:true,required:true}">{{@mobile}}
+                        <input class="form-control" id="mobile" type="tel" placeholder="mobile" ms-duplex="@mobile" ms-rules="{mobile:true,required:true}">{{@mobile}}
                     </div>
-                    <div class="field">
+                    <div class="form-group">
                         <label class="" for="mobile">验证码</label>
-                        <div class="ui action input">
-                            <input class="" id="password" type="password" placeholder="Password" ms-duplex="@password" ms-rules="{password:true,required:true}">
-                            <img ms-attr="{src: @validateCode.img}" ms-on-click="@reloadvalidate" :css="@validateCode.style">
-                            <button class="ui button" ms-on-click="@reloadvalidate">刷新</button>
+                        <div class="input-group">
+                            <input class="form-control" id="password" type="password" placeholder="Password" ms-duplex="@password" ms-rules="{password:true,required:true}">
+                            <div class="input-group-btn">
+                                <img class="btn btn-default" ms-attr="{src: @validateCode.img}" ms-on-click="@reloadvalidate" :css="@validateCode.style">
+                                <span class="btn btn-default" ms-on-click="@reloadvalidate">刷新</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="field">
+                    <div class="form-group">
                         <label class="" for="email">邮箱</label>
-                        <input class="" id="email" type="email" placeholder="Email Address">
+                        <input class="form-control" id="email" type="email" placeholder="Email Address">
                     </div>
-                    <div class="field">
+                    <div class="form-group">
                         <label class="" for="password">密码</label>
-                        <input class="" id="password" type="password" placeholder="Password" ms-duplex="@password" ms-rules="{password:true,required:true}">
+                        <input class="form-control" id="password" type="password" placeholder="Password" ms-duplex="@password" ms-rules="{password:true,required:true}">
                     </div>
-                    <div class="field">
+                    <div class="form-group">
                         <label class="" for="password">确认密码</label>
-                        <input class="" type="password" placeholder="Password" ms-duplex="@confirm_password | change" ms-rules="{equalto:'password',required:true}">
+                        <input class="form-control" type="password" placeholder="Password" ms-duplex="@confirm_password | change" ms-rules="{equalto:'password',required:true}">
                     </div>
-                    <div class="field">
-                        <div class="ui checkbox">
+                    <div class="form-group">
+                        <div class="">
                             <input id="cb" type="checkbox" checked="checked">
                             <label for="cb">已阅读协议</label>
                         </div>
                     </div>
-                    <button type="submit" class="ui button primary">提交</button>
+                    <button type="submit" class="btn btn-primary">提交</button>
                 </fieldset>
             </form>
         </div>
