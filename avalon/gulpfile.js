@@ -32,7 +32,7 @@ gulp.task('htmlhint', function() {
 // 编译Less
 gulp.task('less', function() {
     var lessFun = gulp.src('./bulid/css/less/*.less')
-        .pipe(cache(less()))
+        .pipe(less())
         .pipe(gulp.dest('./bulid/css'));
     return lessFun;
 });
@@ -46,7 +46,7 @@ gulp.task('cssmin', ['less'], function() {
 //include公共文件
 gulp.task('fileinclude', ['cssmin'], function() {
     gulp.src('./bulid/*.html')
-        .pipe(inject(gulp.src(['./bulid/css/normalize.css', './bulid/css/bootstrap.min.css', './bulid/css/layer.css', './bulid/css/style.css'], { reda: false }), { starttag: '<!-- inject:base:{{ext}} -->', relative: true }))
+        .pipe(inject(gulp.src(['./bulid/css/normalize.css', './bulid/css/antStyle.css', './bulid/css/layer.css'], { reda: false }), { starttag: '<!-- inject:base:{{ext}} -->', relative: true }))
         //.pipe(inject(gulp.src(['./bulid/js/lib/require.js'], { reda: false }), { starttag: '<!-- inject:require:{{ext}} -->', relative: true }))
         .pipe(fileinclude({
             prefix: '<!--IEhack@',
