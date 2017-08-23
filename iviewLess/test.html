@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>avalon</title>
+    <!-- inject:base:css -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- endinject -->
+    <!--[if lt IE 9]>
+        <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>  
+        <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <script src="https://cdn.bootcss.com/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+        <![endif]-->        
+    </style>
+</head>
+
+<body ms-controller="body" class="ms-controller">
+    <div class="ivu-row">
+    <form action="" class="ivu-form ivu-col-12 ivu-col-offset-2">
+        <div class="ivu-form-item"><label for="" class="ivu-form-item-label">输入框1</label><input type="text" class="ivu-input"></div>
+        <div class="ivu-form-item"><label for="" class="ivu-form-item-label">输入框2</label><input type="text" class="ivu-input"></div>
+        <div class="ivu-form-item"><label for="" class="ivu-form-item-label">输入框3</label><input type="text" class="ivu-input"></div>
+        <div class="ivu-form-item"><label for="" class="ivu-form-item-label">输入框4</label><input type="text" class="ivu-input"></div>
+        <div class="ivu-form-item ivu-form-item-error">
+                <label for="" class="ivu-form-item-label" style="width: 80px;">输入框1</label>
+            <div class="ivu-form-item-content" style="margin-left: 80px;">
+                <input type="text" class="ivu-input">
+                <span class="ivu-form-item-error-tip">error</span>
+            </div>
+        </div>
+        <div class="ivu-form-item">
+                <label for="" class="ivu-form-item-label" style="width: 80px;">输入框2</label>
+            <div class="ivu-form-item-content" style="margin-left: 80px;">
+                <input type="text" class="ivu-input">
+                <span class="ivu-form-item-error-tip">error</span>
+            </div>
+        </div>
+        <div class="ivu-form-item ivu-form-item-required">
+                <label for="" class="ivu-form-item-label" style="width: 80px;">输入框3</label>
+            <div class="ivu-form-item-content" style="margin-left: 80px;">
+                <input type="text" class="ivu-input">
+                <span class="ivu-form-item-error-tip">error</span>
+            </div>
+        </div>
+        <div class="ivu-form-item">
+                <label for="" class="ivu-form-item-label" style="width: 80px;">输入框4</label>
+            <div class="ivu-form-item-content" style="margin-left: 80px;">
+                <input type="text" class="ivu-input">
+                <span class="ivu-form-item-error-tip">error</span>
+            </div>
+        </div>
+
+
+
+        div.ivu-form-item>(label.ivu-form-item-label+div.ivu-form-item-content>input.ivu-input+span.ivu-form-item-error-tip)*4
+    </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+@row-prefix-cls: ~"@{css-prefix}row";
+@col-prefix-cls: ~"@{css-prefix}col";
+
+.make-row(@gutter: @grid-gutter-width) {//==================生成row容器
+    position: relative;
+    margin-left: (@gutter / -2);
+    margin-right: (@gutter / -2);
+    height: auto;
+    .clearfix;
+}
+
+.float-grid-columns(@class) {
+    .col(@index) { // initial//=====================定义函数功能
+        //@item: ~".@{col-prefix-cls}-span@{class}-@{index}";//===============生成样式类名：col-span-1 或 col-span-offset-1
+        @item: ~".@{col-prefix-cls}@{class}-@{index}";//===============生成样式类名：col-1 或 col-offset-1
+        .col((@index + 1), @item);
+    }
+    .col(@index, @list) when (@index =< @grid-columns) { // general//====================根据栅格生成1~24等分
+        //@item: ~".@{col-prefix-cls}-span@{class}-@{index}";
+        @item: ~".@{col-prefix-cls}@{class}-@{index}";
+        .col((@index + 1), ~"@{list}, @{item}");
+    }
+    .col(@index, @list) when (@index > @grid-columns) { // terminal
+        @{list} {
+            float: left;
+            flex: 0 0 auto;
+        }
+    }
+    .col(1); // kickstart it//====================从1开始执行
+}
+
+.loop-grid-columns(@index, @class) when (@index > 0) {
+    //.@{col-prefix-cls}-span@{class}-@{index} {
+    .@{col-prefix-cls}@{class}-@{index} {
+        display: block;
+        width: percentage((@index / @grid-columns));
+    }
+    //.@{col-prefix-cls}@{class}-push-@{index} {//===============push/pull/order使用较少，暂不生成
+    //    left: percentage((@index / @grid-columns));
+    //}
+    //.@{col-prefix-cls}@{class}-pull-@{index} {
+    //    right: percentage((@index / @grid-columns));
+    //}
+    //.@{col-prefix-cls}@{class}-order-@{index} {
+    //    order: @index;
+    //} 
+    .@{col-prefix-cls}@{class}-offset-@{index} {
+        margin-left: percentage((@index / @grid-columns));
+    }
+    .loop-grid-columns((@index - 1), @class);
+}
+
+.loop-grid-columns(@index, @class) when (@index = 0) {
+    //.@{col-prefix-cls}-span@{class}-@{index} {
+    .@{col-prefix-cls}@{class}-@{index} {
+        display: none;
+    }
+    //.@{col-prefix-cls}@{class}-push-@{index} {//===============push/pull/order使用较少，暂不生成
+    //    left: auto;
+    //}
+    //.@{col-prefix-cls}@{class}-pull-@{index} {
+    //    right: auto;
+    //}
+}
+
+.make-grid(@class: ~'') {
+    .float-grid-columns(@class);
+    .loop-grid-columns(@grid-columns, @class);
+}

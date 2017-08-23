@@ -1,0 +1,43 @@
+.ui-form {
+    .ui-form-item {}
+    &.ui-form-inline {
+        .ui-form-tiem {
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+    }
+    &.ui-form-label-left {
+        .ui-form-label {
+            text-align: left;
+        }
+    }
+    &.ui-form-label-top {
+        .ui-form-label {
+            float: none;
+            display: inline-block;
+            padding: 0 0 10px 0;
+        }
+    }
+}
+
+.ui-form-item {
+    margin-bottom: 24px;
+    vertical-align: top;
+    .clearfix();
+    &.required {
+        label:before {
+            //当item为required必填时，label显示红色
+            content: '*';
+            display: inline-block;
+            margin-right: 4px;
+            line-height: 1;
+            font-family: SimSun;
+            font-size: @font-size-small;
+            color: @error-color;
+        }
+    }
+    label {
+        //默认样式
+    }
+}
