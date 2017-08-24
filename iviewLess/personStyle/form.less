@@ -1,30 +1,70 @@
-.ui-form {
-    .ui-form-item {}
-    &.ui-form-inline {
-        .ui-form-tiem {
-            display: inline-block;
-            margin-right: 10px;
-            vertical-align: top;
+@form-prefix-cls: ~"@{css-prefix}form";
+@form-item-prefix-cls: ~"@{form-prefix-cls}-item";
+@label-left-width:100px;
+
+.@{form-prefix-cls} {
+    .@{form-prefix-cls}-item {
+        label {
+            //label默认样式
+            text-align: right;
+            vertical-align: middle;
+            float: left;
+            font-size: @font-size-small;
+            color: @text-color;
+            line-height: 1;
+            padding: 10px 12px 10px 0;
+            box-sizing: border-box;
         }
     }
-    &.ui-form-label-left {
-        .ui-form-label {
-            text-align: left;
+    &.label-left {
+        .@{form-item-prefix-cls}-label {
+            width: @label-left-width;
+        }
+        .@{form-item-prefix-cls}-content{
+            margin-left: @label-left-width;
         }
     }
-    &.ui-form-label-top {
-        .ui-form-label {
+    &.label-top {
+        .@{form-item-prefix-cls}-label {
             float: none;
             display: inline-block;
             padding: 0 0 10px 0;
         }
     }
+    &-inline {
+        .@{form-prefix-cls}-item {
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: top;
+        }
+    }
 }
 
-.ui-form-item {
+.@{form-prefix-cls}-item {
     margin-bottom: 24px;
     vertical-align: top;
     .clearfix();
+    &-content {
+        position: relative;
+        line-height: 32px;
+        font-size: @font-size-small;
+        .info-tip {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            line-height: 1;
+            padding-top: 6px;
+            color: tint(@input-color, 50%);
+        }
+        .error-tip {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            line-height: 1;
+            padding-top: 6px;
+            color: @error-color;
+        }
+    }
     &.required {
         label:before {
             //当item为required必填时，label显示红色
@@ -36,8 +76,5 @@
             font-size: @font-size-small;
             color: @error-color;
         }
-    }
-    label {
-        //默认样式
     }
 }

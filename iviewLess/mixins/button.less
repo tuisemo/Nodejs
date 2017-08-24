@@ -164,11 +164,11 @@
         }
     }
 
-    &-large {
+    &-lg {
         .button-size(@btn-padding-large; @btn-font-size-large; @btn-border-radius);
     }
 
-    &-small {
+    &-sm {
         .button-size(@btn-padding-small; @btn-font-size; @btn-border-radius-small);
     }
 }
@@ -315,7 +315,7 @@
     }
 
     &:not(&-vertical) > .@{btnClassName}:first-child {
-        margin-left: 0;
+        margin-left: -1px;
         &:not(:last-child) {
             border-bottom-right-radius: 0;
             border-top-right-radius: 0;

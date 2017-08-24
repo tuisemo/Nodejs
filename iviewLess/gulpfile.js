@@ -10,7 +10,7 @@ const ext_replace = require('gulp-ext-replace');
 
 // 编译Less
 gulp.task('less', function() {
-    return gulp.src('./index.less')
+    return gulp.src('./style.less')
         .pipe(less())
         .pipe(gulp.dest('./css'));
 });

@@ -1,0 +1,32 @@
+@input-prefix-cls: ~"@{css-prefix}input";
+
+.@{input-prefix-cls} {
+    .input;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    vertical-align: middle;
+}
+
+.@{input-prefix-cls}-group {
+    .input-group(~"@{input-prefix-cls}");
+}
+
+.@{form-item-prefix-cls}.error {
+    .@{input-prefix-cls} {
+        .input-error;
+    }
+    .@{input-prefix-cls}-group {
+        .input-group-error;
+    }
+    .info-tip {
+        line-height: 1;
+        padding-top: 6px;
+        color: @error-color;
+    }
+    .error-tip {
+        line-height: 1;
+        padding-top: 6px;
+        color: @error-color;
+    }
+}

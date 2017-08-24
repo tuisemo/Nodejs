@@ -1,11 +1,14 @@
 @row-prefix-cls: ~"@{css-prefix}row";
 @col-prefix-cls: ~"@{css-prefix}col";
+@layout-padding:15px;
 
 .make-row(@gutter: @grid-gutter-width) {//==================生成row容器
     position: relative;
     margin-left: (@gutter / -2);
     margin-right: (@gutter / -2);
     height: auto;
+    padding-left: @layout-padding;
+    padding-right: @layout-padding;
     .clearfix;
 }
 
@@ -34,6 +37,8 @@
     .@{col-prefix-cls}@{class}-@{index} {
         display: block;
         width: percentage((@index / @grid-columns));
+        padding-left: @layout-padding;
+        padding-right: @layout-padding;
     }
     //.@{col-prefix-cls}@{class}-push-@{index} {//===============push/pull/order使用较少，暂不生成
     //    left: percentage((@index / @grid-columns));

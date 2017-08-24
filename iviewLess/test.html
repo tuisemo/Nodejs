@@ -7,56 +7,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>avalon</title>
     <!-- inject:base:css -->
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/style.css">
     <!-- endinject -->
     <!--[if lt IE 9]>
         <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>  
         <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
         <script src="https://cdn.bootcss.com/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
-        <![endif]-->        
+        <![endif]-->
     </style>
 </head>
 
 <body ms-controller="body" class="ms-controller">
-    <div class="ivu-row">
-    <form action="" class="ivu-form ivu-col-12 ivu-col-offset-2">
-        <div class="ivu-form-item"><label for="" class="ivu-form-item-label">输入框1</label><input type="text" class="ivu-input"></div>
-        <div class="ivu-form-item"><label for="" class="ivu-form-item-label">输入框2</label><input type="text" class="ivu-input"></div>
-        <div class="ivu-form-item"><label for="" class="ivu-form-item-label">输入框3</label><input type="text" class="ivu-input"></div>
-        <div class="ivu-form-item"><label for="" class="ivu-form-item-label">输入框4</label><input type="text" class="ivu-input"></div>
-        <div class="ivu-form-item ivu-form-item-error">
-                <label for="" class="ivu-form-item-label" style="width: 80px;">输入框1</label>
-            <div class="ivu-form-item-content" style="margin-left: 80px;">
-                <input type="text" class="ivu-input">
-                <span class="ivu-form-item-error-tip">error</span>
+    <div class="ui-row">
+        <form action="" class="ui-form label-top ui-col-12 ui-col-offset-2">
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框1</label>
+                <input type="text" class="ui-input">
             </div>
-        </div>
-        <div class="ivu-form-item">
-                <label for="" class="ivu-form-item-label" style="width: 80px;">输入框2</label>
-            <div class="ivu-form-item-content" style="margin-left: 80px;">
-                <input type="text" class="ivu-input">
-                <span class="ivu-form-item-error-tip">error</span>
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框2</label>
+                <input type="text" class="ui-input">
             </div>
-        </div>
-        <div class="ivu-form-item ivu-form-item-required">
-                <label for="" class="ivu-form-item-label" style="width: 80px;">输入框3</label>
-            <div class="ivu-form-item-content" style="margin-left: 80px;">
-                <input type="text" class="ivu-input">
-                <span class="ivu-form-item-error-tip">error</span>
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框3</label>
+                <input type="text" class="ui-input">
             </div>
-        </div>
-        <div class="ivu-form-item">
-                <label for="" class="ivu-form-item-label" style="width: 80px;">输入框4</label>
-            <div class="ivu-form-item-content" style="margin-left: 80px;">
-                <input type="text" class="ivu-input">
-                <span class="ivu-form-item-error-tip">error</span>
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框3</label>
+                <div class="ui-input-group">
+                    <div class="ui-input-group-add">add</div>
+                    <input type="text" class="ui-input">
+                </div>
             </div>
-        </div>
-
-
-
-        div.ivu-form-item>(label.ivu-form-item-label+div.ivu-form-item-content>input.ivu-input+span.ivu-form-item-error-tip)*4
-    </form>
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框3</label>
+                <div class="ui-input-group">
+                    <input type="text" class="ui-input">
+                    <div class="ui-input-group-end">end</div>
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框3</label>
+                <div class="ui-input-group">
+                    <div class="ui-input-group-add">add</div>
+                    <input type="text" class="ui-input">
+                    <div class="ui-input-group-end">end</div>
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框3</label>
+                <div class="ui-input-group">
+                    <input type="text" class="ui-input">
+                    <div class="ui-btn-group">
+                        <div class="ui-btn">1</div>
+                        <div class="ui-btn">1</div>
+                        <div class="ui-btn">1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框4</label>
+                <select name="" id="" class="ui-select">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="ui-form-item label-left">
+                <label class="ui-form-item-label">输入框1</label>
+                <div class="ui-form-item-content">
+                    <input type="text" class="ui-input">
+                    <span class="info-tip">error</span>
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <div class="ui-btn">1</div>
+                <div class="ui-btn primary">1</div>
+                <div class="ui-btn ghost">1</div>
+                <div class="ui-btn dashed">1</div>
+                <div class="ui-btn text">1</div>
+                <div class="ui-btn info">1</div>
+                <div class="ui-btn success">1</div>
+                <div class="ui-btn warning">1</div>
+                <div class="ui-btn error">1</div>
+                <div class="ui-btn ui-btn-lg">1</div>
+                <div class="ui-btn ui-btn-sm">1</div>
+                <div class="ui-btn ui-btn-loading">1</div>
+                <div class="ui-btn disabled">1</div>
+                <div class="ui-btn ui-btn-long">1</div>
+                <div class="ui-btn-group">
+                    <div class="ui-btn">1</div>
+                    <div class="ui-btn">1</div>
+                    <div class="ui-btn">1</div>
+                </div>
+                <div class="ui-btn ui-col-2">1</div>
+            </div>
+        </form>
+    </div>
+    <div class="ui-row">
+        <form action="" class="ui-form label-left">
+            <div class="ui-form-item required">
+                <label class="ui-form-item-label">输入框2</label>
+                <div class="ui-form-item-content">
+                    <input type="text" class="ui-input">
+                    <span class="info-tip">error</span>
+                </div>
+            </div>
+            <div class="ui-form-item required">
+                <label class="ui-form-item-label">输入框3</label>
+                <div class="ui-form-item-content">
+                    <input type="text" class="ui-input">
+                    <span class="info-tip">error</span>
+                </div>
+            </div>
+            <div class="ui-form-item">
+                <label class="ui-form-item-label">输入框4</label>
+                <div class="ui-form-item-content">
+                    <input type="text" class="ui-input">
+                    <span class="info-tip">error</span>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 
