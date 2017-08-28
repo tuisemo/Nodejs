@@ -18,6 +18,7 @@ require.config({
         //jquery: "./lib/jquery",
         avalon: "./lib/avalon",
         //layer: "./lib/layer",
+        MSG: "./MSG",
         controller: "./controller"
     }
 });

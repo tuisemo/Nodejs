@@ -9,7 +9,7 @@
             text-align: right;
             vertical-align: middle;
             float: left;
-            font-size: @font-size-small;
+            font-size: @font-size-base;
             color: @text-color;
             line-height: 1;
             padding: 10px 12px 10px 0;
@@ -46,7 +46,7 @@
     .clearfix();
     &-content {
         position: relative;
-        line-height: 32px;
+        //line-height: 32px;
         font-size: @font-size-small;
         .info-tip {
             position: absolute;
@@ -73,8 +73,22 @@
             margin-right: 4px;
             line-height: 1;
             font-family: SimSun;
-            font-size: @font-size-small;
+            font-size: @font-size-base;
             color: @error-color;
+        }
+    }
+}
+@media (max-width: @screen-xs-max) {
+    .@{form-prefix-cls} {
+        &.label-left {
+            .@{form-item-prefix-cls}-label {
+                text-align: left;
+                width: 100%;
+                padding: 5px 0;
+            }
+            .@{form-item-prefix-cls}-content {
+                margin-left: 0;
+            }
         }
     }
 }

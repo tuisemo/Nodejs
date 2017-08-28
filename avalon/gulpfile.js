@@ -31,7 +31,7 @@ gulp.task('htmlhint', function() {
 });
 // 编译Less
 gulp.task('less', function() {
-    var lessFun = gulp.src('./bulid/css/less/*.less')
+    var lessFun = gulp.src(['./bulid/css/less/*.less','!./bulid/css/less/variables.less'])
         .pipe(less())
         .pipe(gulp.dest('./bulid/css'));
     return lessFun;
@@ -46,7 +46,13 @@ gulp.task('cssmin', ['less'], function() {
 //include公共文件
 gulp.task('fileinclude', ['cssmin'], function() {
     gulp.src('./bulid/*.html')
-        .pipe(inject(gulp.src([ /*'./bulid/css/normalize.css', './bulid/css/base.css',*/ './bulid/css/iview.css', './bulid/css/layer.css'], { reda: false }), { starttag: '<!-- inject:base:{{ext}} -->', relative: true }))
+        .pipe(fileinclude({
+            prefix: '<!--module@',
+            suffix: '-->',
+            basepath: '@file',
+            indent: true
+        }))
+        .pipe(inject(gulp.src(['./bulid/css/UI.css','./bulid/css/style.css', './bulid/css/layer.css'], { reda: false }), { starttag: '<!-- inject:base:{{ext}} -->', relative: true }))
         //.pipe(inject(gulp.src(['./bulid/js/lib/require.js'], { reda: false }), { starttag: '<!-- inject:require:{{ext}} -->', relative: true }))
         .pipe(fileinclude({
             prefix: '<!--IEhack@',
@@ -84,8 +90,8 @@ gulp.task('default', ['htmlhint', 'cssmin', 'jshint', 'scripts', 'fileinclude'],
 
     // 监听文件变化
     gulp.watch('./bulid/js/*.js', ['jshint', 'scripts']);
-    gulp.watch('./bulid/css/*.less', ['less']);
+    gulp.watch('./bulid/css/less/*.less', ['less']);
     gulp.watch('./bulid/css/*.css', ['cssmin']);
     gulp.watch(['./bulid/*.html'], ['fileinclude']);
-    gulp.watch(['./bulid/include/*.html'], ['fileinclude', 'htmlminify', 'htmlbeautify']);
+    gulp.watch(['./bulid/include/*.html'], ['fileinclude', 'htmlminify']);
 });
