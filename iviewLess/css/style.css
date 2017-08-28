@@ -2460,7 +2460,7 @@ MIT License: https://github.com/driftyco/ionicons
   user-select: none;
   padding: 5px 15px 6px 15px;
   font-size: 14px;
-  border-radius: 6px;
+  border-radius: 4px;
   transform: translate3d(0, 0, 0);
   transition: color 0.2s linear, background-color 0.2s linear, border 0.2s linear;
   color: #657180;
@@ -2493,12 +2493,12 @@ MIT License: https://github.com/driftyco/ionicons
 .ui-btn-lg {
   padding: 7px 15px 7px 15px;
   font-size: 16px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .ui-btn-sm {
   padding: 2px 7px;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .ui-btn > a:only-child {
   color: currentColor;
@@ -3878,7 +3878,7 @@ fieldset[disabled] .ui-btn.info.active > a:only-child:after {
 .ui-btn-group-large > .ui-btn {
   padding: 7px 15px 7px 15px;
   font-size: 16px;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .ui-btn-group-small.ui-btn-group-circle .ui-btn {
   border-radius: 24px;
@@ -3886,7 +3886,7 @@ fieldset[disabled] .ui-btn.info.active > a:only-child:after {
 .ui-btn-group-small > .ui-btn {
   padding: 2px 7px;
   font-size: 14px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .ui-btn-group-small > .ui-btn > .ui-icon {
   font-size: 14px;
@@ -4130,7 +4130,7 @@ fieldset[disabled] .ui-btn.info.active > a:only-child:after {
   padding: 4px 7px;
   font-size: 12px;
   border: 1px solid #d7dde4;
-  border-radius: 6px;
+  border-radius: 4px;
   color: #657180;
   background-color: #fff;
   background-image: none;
@@ -4143,7 +4143,7 @@ fieldset[disabled] .ui-btn.info.active > a:only-child:after {
   padding: 4px 7px;
   font-size: 14px;
   border: 1px solid #d7dde4;
-  border-radius: 6px;
+  border-radius: 4px;
   color: #657180;
   background-color: #fff;
   background-image: none;
@@ -4197,7 +4197,7 @@ textarea.ui-input {
 .ui-input-sm {
   padding: 1px 7px;
   height: 24px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .ui-input-group {
   display: table;
@@ -4328,7 +4328,7 @@ textarea.ui-input {
 .ui-input-group-sm > .ui-input-group-end {
   padding: 1px 7px;
   height: 24px;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .ui-input-group .ui-btn-group {
   width: 1%;

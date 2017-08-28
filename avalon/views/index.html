@@ -36,14 +36,14 @@
                 <div class="ui-form-item required">
                     <label class="ui-form-item-label">用户名</label>
                     <div class="ui-form-item-content">
-                        <input type="text" class="ui-input" ms-duplex="@userName.value" ms-rules="{userName:true,required:true}">
+                        <input name="userName" type="text" class="ui-input" ms-duplex="@userName.value" ms-rules="{userName:true,required:true}">
                         <span class="info-tip" ms-text="@userName.msg"></span>
                     </div>
                 </div>
                 <div class="ui-form-item required">
                     <label class="ui-form-item-label">手&nbsp;&nbsp;&nbsp;&nbsp;机</label>
                     <div class="ui-form-item-content">
-                        <input type="text" class="ui-input" ms-duplex="@mobile.value" ms-rules="{mobile:true,required:true}">
+                        <input name="mobile" type="text" class="ui-input" ms-duplex="@mobile.value" ms-rules="{mobile:true,required:true}">
                         <span class="info-tip" ms-text="@mobile.msg"></span>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     <label class="ui-form-item-label">图形码</label>
                     <div class="ui-form-item-content">
                         <div class="ui-input-group">
-                            <input type="text" class="ui-input">
+                            <input name="reloadvalidate" type="text" class="ui-input">
                             <div class="ui-btn-group">
                                 <img class="ui-btn" ms-attr="{src: @validateCode.src }" ms-css="@validateCode.style" ms-on-click="@reloadvalidate">
                                 <div class="ui-btn" ms-on-click="@reloadvalidate">刷新</div>
@@ -64,7 +64,7 @@
                     <label class="ui-form-item-label">验证码</label>
                     <div class="ui-form-item-content">
                         <div class="ui-input-group">
-                            <input type="text" class="ui-input" ms-duplex="@msgCode.value" ms-rules="{required:true}">
+                            <input name="msgCode" type="text" class="ui-input" ms-duplex="@msgCode.value" ms-rules="{required:true}">
                             <div class="ui-btn-group">
                                 <div ms-if="@config.btnState" class="ui-btn primary" ms-on-click-1="@config.btnState=!@config.btnState" ms-on-click-2="@sendMsgFor(01,'Citizen')" ms-text="@config.btnMsg">发送验证码</div>
                                 <div ms-if="!@config.btnState" class="ui-btn" ms-text="@config.btnMsg" disabled>发送验证码</div>
@@ -76,14 +76,14 @@
                 <div class="ui-form-item required">
                     <label class="ui-form-item-label">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
                     <div class="ui-form-item-content">
-                        <input type="text" class="ui-input" ms-duplex="@password.value" ms-rules="{password:true,required:true}">
+                        <input name="password" type="password" class="ui-input" ms-duplex="@password.value" ms-rules="{password:true,required:true}">
                         <span class="info-tip" ms-text="@password.msg"></span>
                     </div>
                 </div>
                 <div class="ui-form-item required">
                     <label class="ui-form-item-label">确认密码</label>
                     <div class="ui-form-item-content">
-                        <input type="text" class="ui-input" ms-duplex="@confirm_password.value | change" ms-rules="{equalto:'password',required:true}">
+                        <input name="confirm_password" type="password" class="ui-input" ms-duplex="@confirm_password.value | change" ms-rules="{equalto:'password',required:true}">
                         <span class="info-tip"></span>
                     </div>
                 </div>
