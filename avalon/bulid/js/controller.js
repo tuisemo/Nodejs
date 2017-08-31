@@ -29,7 +29,8 @@ define(['MSG', 'avalon'], function() {
         validateCode: {
             value: '',
             msg: MSG[401],
-            src: 'http://www.ixm.gov.cn/dis/passport/authCode/show',
+            src: 'http://ixm.terton.com.cn/dis/passport/authCode/show?',
+            //src: '',
             style: { padding: 0, height: 34 }
         },
         msgCode: {
@@ -40,16 +41,17 @@ define(['MSG', 'avalon'], function() {
             onError: function(reasons) {
                 layer.msg(reasons[0].message);
                 reasons.forEach(function(reason) {
-                    $(reason.element).parents('.ui-form-item').addClass('error')
-                        .find('.info-tip').html(reason.getMessage());
-                    console.log(reason.getMessage());
+                    $(reason.element).parents('.ui-form-item').addClass('error');
+                    vm[$(reason.element).attr('name')].msg = reason.getMessage();
+                    //console.log(reason.getMessage());
                 });
             },
             onValidateAll: function(reasons) {
                 if (reasons.length) {
-                    //layer.msg(reasons[0].message);
+                    layer.msg(reasons[0].message);
                     reasons.forEach(function(reason) {
-                        console.log(reason.getMessage());
+                        $(reason.element).parents('.ui-form-item').addClass('error');
+                        vm[$(reason.element).attr('name')].msg = reason.getMessage();
                     });
                 } else {
                     layer.msg('全部通过');
@@ -58,11 +60,23 @@ define(['MSG', 'avalon'], function() {
             validateInBlur: true,
             validateInKeyup: false
         },
+        /*=================业务逻辑=================*/
+        init: function() {
+            this.listen();
+        },
+        listen: function() {
+            var that = this;
+            $("body").on("focus", "input", function() {
+                //console.log($(this).attr('name'));
+                $(this).parents('.ui-form-item').removeClass('error');
+                var name=$(this).attr('name');
+                that[name].msg = MSG[name];
+            })
+        },
         reloadvalidate: function() {
             this.validateCode.value = '';
-            this.validateCode.src = 'http://www.ixm.gov.cn/dis/passport/authCode/show?' + Math.random();
+            this.validateCode.src = this.validateCode.src + Math.random();
         },
-        /*==================================*/
         Timesetter: function(o) {
             var that = this;
             that.config.timeOpt = false;
@@ -91,7 +105,7 @@ define(['MSG', 'avalon'], function() {
                     url: "/dis/passport/sendMsg",
                     dataType: "json",
                     //async: true,
-                    //cache: false,
+                    cache: false,
                     data: {
                         "operationType": operationType || '',
                         "domainName": domainName || '',
@@ -102,9 +116,6 @@ define(['MSG', 'avalon'], function() {
                     type: "POST",
                     success: function(data) {
                         if (data.code == 200 || data.result) {
-                            $("#msgtimer").hide();
-                            $("#sendmsg").show();
-                            $("#mobilemsg").addClass('text-success').html(MSG["true"] + data.msg);
                             that.Timesetter();
                             return;
                         }
@@ -118,7 +129,8 @@ define(['MSG', 'avalon'], function() {
             }
         }
     });
-
+    vm.init();
+    /*===============表单验证===================*/
     avalon.validators.userName = {
         message: '用户名格式不正确',
         get: function(value, field, next) {
@@ -144,9 +156,9 @@ define(['MSG', 'avalon'], function() {
         }
     };
     avalon.validators.validateCode = {
-        message: '验证码错误',
+        message: '',
         get: function(value, field, next) {
-            next(false);
+            next(true);
             return value;
         }
     };

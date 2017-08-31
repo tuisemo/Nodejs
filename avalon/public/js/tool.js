@@ -1,5 +1,6 @@
-define(['脚本layer'], function(layer) {
+define(['layer'], function(layer) {
     var ResultOpt = function() {
+        this.$body=$("body");
         this.$userName = $("#userName");
         this.$Tel = $("input[type='tel']");
         this.$validateCode = $("#validateCode");
@@ -26,6 +27,12 @@ define(['脚本layer'], function(layer) {
             this.logo();
             this.Alltemplate();
             this.loginCheck();
+        },
+        listen:function(){
+            var that=this;
+            that.$body.on("focus","input",function(this){
+                console.log(this);
+            })
         },
         logo: function() {
             if (this.$ixmcontainer.attr("data-type") == "enterprise") {
@@ -98,8 +105,8 @@ define(['脚本layer'], function(layer) {
                 case 1002:
                 case 1003:
                     {
-                        this.$userName.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$userName.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         break;
                     }
                 case 2001:
@@ -108,8 +115,8 @@ define(['脚本layer'], function(layer) {
                 case 2004:
                 case 2005:
                     {
-                        this.$Tel.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$Tel.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         break;
                     }
                 case 3001:
@@ -118,49 +125,49 @@ define(['脚本layer'], function(layer) {
                 case 3004:
                 case 3005:
                     {
-                        this.$Tel.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$Tel.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         break;
                     }
                 case 4004:
                 case 4006:
                     {
-                        this.$validateCode.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$validateCode.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         break;
                     }
                 case 6002:
                     {
-                        this.$certificateNum.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$certificateNum.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         layer.msg(data.msg);
                         break;
                     }
                 case 7002:
                     {
-                        this.$enterpriseName.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$enterpriseName.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         layer.msg(data.msg);
                         break;
                     }
                 case 8002:
                     {
-                        this.$businessLicense.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$businessLicense.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         layer.msg(data.msg);
                         break;
                     }
                 case 9002:
                     {
-                        this.$organizationCode.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$organizationCode.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         layer.msg(data.msg);
                         break;
                     }
                 case 10002:
                     {
-                        this.$unifiedcreditCode.parents('.form-group').addClass('has-error')
-                        .find('.help-block').html(MSG["false"] + data.msg);
+                        this.$unifiedcreditCode.parents('.ui-form-item').addClass('error')
+                        .find('.info-tip').html(data.msg);
                         layer.msg(data.msg);
                         break;
                     }
