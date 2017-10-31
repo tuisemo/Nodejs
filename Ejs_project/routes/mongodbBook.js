@@ -99,4 +99,10 @@ router.post('/:bookId/edit', (req, res) => {
 })
 
 
+router.post('/api', function(req, res) {
+    let url = 'http://www.ixm.gov.cn/dis/passport/checkUserAttribute';
+    console.log(req);
+    request.post(url, { form: req.body }).pipe(res);
+});
+
 module.exports = router
